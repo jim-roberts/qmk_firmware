@@ -19,8 +19,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
-#define LAYOUT( \
+#define LAYOUT_bigswitch( \
     k00 \
-) { \
+) \
+{ \
     { k00 } \
 }
