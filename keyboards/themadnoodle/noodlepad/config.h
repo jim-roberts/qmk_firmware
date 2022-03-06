@@ -38,8 +38,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* RGB BackLight */
 #define RGB_DI_PIN B7
 #define RGBLED_NUM 4
-#define RGBLIGHT_SLEEP
-#define RGBLIGHT_ANIMATIONS
+//#define RGBLIGHT_SLEEP
+
+//#define RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_EFFECT_SNAKE
+#define RGBLIGHT_EFFECT_BREATHING
+
 /*Encoders */
 #define ENCODERS_PAD_A { D0 }
 #define ENCODERS_PAD_B { D1 }
@@ -47,3 +51,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION ROW2COL
+
+/* Tap Dance */
+//"TAPPING_TERM is the length of time in milliseconds that it takes for a press to be considered a hold. Less than it is a tap. Longer is a hold."
+#define TAPPING_TERM 	200
