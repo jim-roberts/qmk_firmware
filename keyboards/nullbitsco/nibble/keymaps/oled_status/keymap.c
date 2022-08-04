@@ -16,7 +16,7 @@
 #include QMK_KEYBOARD_H
 
 #ifdef OLED_ENABLE
-#    include "oled_display.h"
+#include "oled_display.h"
 #endif
 
 enum layer_names { _MA, _FN };

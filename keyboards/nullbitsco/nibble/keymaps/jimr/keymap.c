@@ -43,7 +43,8 @@
 #define PSCR_PASTE_KEY      KC_F20  /*Pass to autohotkey script : prntsrc, open irfanview and paste*/
 
 #ifdef OLED_ENABLE
-#    include "../jr-oled-status/oled_display.h"
+//#    include "../jr-oled-status/oled_display.h"
+#include "oled_display.h"
 #endif
 
 enum layer_names { _MA, _FN };

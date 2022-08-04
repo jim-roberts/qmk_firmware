@@ -17,19 +17,21 @@
 
 #include "config_common.h"
 
-// Referenced custom font
 #ifdef OLED_ENABLE
-    //JR
-	#define OLED_DISPLAY_128X64
+	#define OLED_DISPLAY_128X64 /* This informs QMK OLED driver size of oled screen*/
 
 	#ifdef OLED_DISPLAY_128X64
 		//0.96in
-		//#    define OLED_IC		OLED_IC_SSD1306 /*default*/
+		//#define OLED_IC		OLED_IC_SSD1306 /*default*/
 		//1.30in
 		#define OLED_IC		OLED_IC_SH1106
+		
+		#if ( OLED_IC_SH1106 == OLED_IC )
+			#define OLED_COLUMN_OFFSET ( 2 ) 
+		#endif
+		
+		#define OLED_FONT_H "keyboards/nullbitsco/nibble/keymaps/jimr/glcdfont.c"
 	#endif
-
-	#define OLED_FONT_H "keyboards/nullbitsco/nibble/keymaps/jr-oled-status/glcdfont.c"
 #endif
 
 #ifdef RGBLIGHT_SLEEP
