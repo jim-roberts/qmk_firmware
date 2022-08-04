@@ -21,6 +21,11 @@
     Programming :
 
             1. !!! Must press 'reset' button 2x to enable Caterina bootloader !!
+			
+  *  Build :
+  *     qmk compile -kb  mechwild/murphpad -km jimr
+  *  Clean :
+  *     qmk compile -kb  mechwild/murphpad -km clean
 
     Oled:
 
@@ -111,7 +116,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
 #ifdef OLED_ENABLE
 	oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-		return OLED_ROTATION_270;       // flips the display 270 degrees
+		return OLED_ROTATION_0;//270;       // flips the display 270 degrees
 	}
 
 	static void render_logo(void) {     // Render MechWild "MW" Logo
