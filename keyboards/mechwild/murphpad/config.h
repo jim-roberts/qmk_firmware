@@ -57,7 +57,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
 #    define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 /*== all animations enable ==*/
-#    define RGBLIGHT_ANIMATIONS
+//#    define RGBLIGHT_ANIMATIONS
 /*== or choose animations ==*/
 //#    define RGBLIGHT_EFFECT_BREATHING
 //#    define RGBLIGHT_EFFECT_RAINBOW_MOOD
@@ -92,3 +92,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Bootmagic Lite key configuration */
 #define BOOTMAGIC_LITE_ROW 0
 #define BOOTMAGIC_LITE_COLUMN 1
+
+#ifdef OLED_ENABLE
+    //JR
+	#define OLED_DISPLAY_128X64 /* Thisinforms QMK OLED driver size of oled screen*/
+
+	#ifdef OLED_DISPLAY_128X64
+		//0.96in
+		//#define OLED_IC		OLED_IC_SSD1306 /*default*/
+		//1.30in
+		#define OLED_IC		OLED_IC_SH1106
+		
+		#if ( OLED_IC_SH1106 == OLED_IC )
+			#define OLED_COLUMN_OFFSET ( 2 )
+		#endif
+	#endif
+#endif
