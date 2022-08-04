@@ -43,11 +43,11 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Base layer (numpad)
   [_BASE] = LAYOUT(
-           KC_PSLS,  KC_KP_ASTERISK, KC_KP_MINUS, 
-  KC_KP_7, KC_KP_8,  KC_KP_9,        KC_KP_PLUS, 
-  KC_KP_4, KC_KP_5,  KC_KP_6,        KC_NO, 
-  KC_KP_1, KC_KP_2,  KC_KP_3,        KC_PENT, 
-  KC_KP_0, KC_KP_0,  KC_KP_DOT,      KC_NO 
+           KC_MUTE,  KC_PSLS,  KC_KP_ASTERISK, 
+  KC_KP_7, KC_KP_8,  KC_KP_9,  KC_KP_MINUS, 
+  KC_KP_4, KC_KP_5,  KC_KP_6,  KC_KP_PLUS, 
+  KC_KP_1, KC_KP_2,  KC_KP_3,  KC_NUM, 
+  KC_KP_0, KC_KP_0,  KC_KP_DOT,KC_PENT 
   ),
   // Function layer (numpad)
   [_FUNC] = LAYOUT(
@@ -173,3 +173,20 @@ void led_set_kb(uint8_t usb_led) {
     else
         set_bitc_LED(LED_OFF);
 }
+
+
+void keyboard_post_init_user(void) {
+
+#ifdef RGBLIGHT_ENABLE
+    rgblight_enable_noeeprom(); // Enables RGB, without saving settings
+    rgblight_sethsv_noeeprom( HSV_WHITE /*HSV_GREEN*/ );
+#endif
+
+    //attempt an EEPROM corruption recovery
+    /*
+    if ( kLayer_EXT_KEYS != get_highest_layer(layer_state) ){
+        eeconfig_init();
+        set_single_persistent_default_layer( kLayer_EXT_KEYS );
+    }
+    */
+};
